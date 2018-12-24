@@ -35,16 +35,15 @@ class ViewController: UIViewController {
     }
     
     // MARK: CONFIG
-    let environment = "TEST"
-    let url = "https://test.gocashfree.com/checksum.php"
-    let appId = "275432e3853bd165afbf5272"
-    let color1Hex = "#6a5594ff"
-    let merchantName = "Jyoti Gas"
-    let notifyUrl = "https://test.gocashfree.com/notify"
+    let environment = "TEST" // "PROD" when you are ready to go live.
+    let appId = "YOUR_APP_ID" // Find it on Cashfree Merchant dashboard
+    let color1Hex = "#6a5594ff" // Color Hexcode with alpha
+    let merchantName = "YOUR_MERCHANT_NAME"
+    let notifyUrl = "YOUR_NOTIFY_URL"
     
-    let orderId = "Z" + String(arc4random())
-    let orderAmount = "12000.00"
-    let customerEmail = "ionictester@email.com"
+    let orderId = "Z199-0004"
+    let orderAmount = "120.00"
+    let customerEmail = "tester@email.com"
     let customerPhone = "9876543210"
     let orderNote = "This is a test note"
     let customerName = "Firstname Lastname"
@@ -52,12 +51,11 @@ class ViewController: UIViewController {
     // Available values: cc, dc, nb, paypal, wallet. Leave it blank if you want to display all modes
     let paymentOption = ""
     
-    var paymentReady = "" //MUST be ""
-    var source_config = "iossdk" //MUST be "iossdk"
+    var paymentReady = "CFTOKEN_VALUE"
+    var source_config = "iossdk" // MUST be "iossdk"
     
     
     @IBAction func payButton(_ sender: Any) {
-        
         
         let CF = CFViewController()
         
@@ -66,7 +64,7 @@ class ViewController: UIViewController {
             
             self.navigationController?.pushViewController(CF, animated: true)
         } else {
-            print(paymentReady)
+            print("paymentReady is empty")
         }
     }
     
@@ -88,11 +86,7 @@ class ViewController: UIViewController {
         
         let CF = CFViewController();
         
-        CF.setConfig(env: "TEST", appId: appId, url: url, color1Hex: color1Hex)
-        
-        CF.initPayment(paymentParams: paymentParams, completion: {output in
-            self.paymentReady = (output)
-        })
+        CF.setConfig(env: "TEST", appId: appId, color1Hex: color1Hex)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -120,4 +114,3 @@ class ViewController: UIViewController {
         }
     }
 }
-

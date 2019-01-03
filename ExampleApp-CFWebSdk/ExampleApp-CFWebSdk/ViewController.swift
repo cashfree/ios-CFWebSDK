@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         
         let CF = CFViewController();
         
-        CF.setConfig(env: "TEST", appId: appId, color1Hex: color1Hex)
+        CF.setConfig(env: environment, appId: appId, color1Hex: color1Hex)
     }
 
     override func viewDidAppear(_ animated: Bool) {

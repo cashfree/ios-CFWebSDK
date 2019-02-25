@@ -4,7 +4,7 @@
 Welcome to CFWebSdk repository. This repo hosts both the iOS Library CFWebSdk as well as a Example App to get you started.
 The Detailed documentation is available [here](https://docs.cashfree.com/docs/ios/guide/).
 
-<b> Steps for using the iosCashfreeSDK </b>
+<b> Steps for using the CFWebSDK </b>
 
 1.  The CFWebSdk.framework should be dragged onto your iOS app project file structure (Copy check mark enabled in Xcode prompt).
 

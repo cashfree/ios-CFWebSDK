@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import iosCashfreeSdk
+import CFWebSDK
 
 class ViewController: UIViewController {
     

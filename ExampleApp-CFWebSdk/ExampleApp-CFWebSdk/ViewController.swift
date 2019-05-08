@@ -15,13 +15,13 @@ class ViewController: UIViewController {
     let source_config = "iossdk" //MUST be "iossdk"
     let environment = "TEST"
     let appId = "YOUR-APP-ID"
-    let color1Hex = "#6a5594ff"
+
     let merchantName = "YOUR-MERCHANT-NAME"
     let notifyUrl = "YOUR-HTTPS-NOTIFY-URL"
     
     let orderId = "mobile-test1001"
     let orderAmount = "52"
-    let customerEmail = "ionictester@email.com"
+    let customerEmail = "iostester@email.com"
     let customerPhone = "9876543210"
     let orderNote = "This is a test note"
     let customerName = "John Doe"
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     // Below are required in SEAMLESS PRO Integration
     // Available values: card, nb, wallet, upi
-    let paymentOption = "card"
+    let paymentOption = "card" // Use "savedCard" in case you want to use Saved Card. You must pass the card_id as shown on line 110.
     
     // Required if using paymentOption nb or wallet. Eg: "3333" for nb Test Bank. "4001" or "4002" for Wallet.
     let paymentCode = ""
@@ -95,12 +95,20 @@ class ViewController: UIViewController {
             "paymentOption": paymentOption,
             "notifyUrl": notifyUrl,
             "source": source_config,
-            //If you don't pass the below key:values then it will not be sent in the request.
+            
+            //If you don't pass the below key:values for card payment then it will not be sent in the request.
             "card_number": "",
             "card_holder": "",
             "card_expiryMonth": "",
             "card_expiryYear": "",
             "card_cvv": "",
+            
+            //If you want to Save a Card, add below line. 1 will save the card_number, card_holder, card_expiryMonth, card_expiryyear & card_cvv
+            "card_save": "1",
+            
+            //If you want to use a Saved Card, add below line instead of the key values from line 99 to 104
+            "card_id": "CARD-ID-RECEIVED-FROM-API-CALL", //Eg: "card_id": "D994260E311BFAC9535911E783478914"
+            
             "paymentCode": paymentCode,
             "upi_vpa": upiVpa,
             "upiMode": upiMode,

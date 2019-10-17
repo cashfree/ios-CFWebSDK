@@ -11,6 +11,8 @@ import CFSDK
 
 class ViewController: UIViewController {
     
+    // Note : This sample project has the simulator SDK. Please download the device SDK from our Docs for running on phones. 
+    
     // MARK:
     let environment = "TEST"
     // appId from your merchant dashboard.

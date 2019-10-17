@@ -7,43 +7,100 @@
 //
 
 import UIKit
-import CFWebSDK
+import CFSDK
 
 class ViewController: UIViewController {
     
-    // MARK: Step 1 - Set Variables (MUST NOT BE EMPTY)
-    let source_config = "iossdk" //MUST be "iossdk"
+    // MARK:
     let environment = "TEST"
-    let appId = "YOUR-APP-ID"
+    // appId from your merchant dashboard.
+    let appId = "275432e3853bd165afbf5272"
+    
+    // Example IBAction for normal WEBVIEW CHECKOUT pay button
+    @IBAction func payButton(_ sender: Any) {
+        // Use below code If you need WEBVIEW CHECKOUT
+        let cfViewController = CFViewController (
+            params: getPaymentParams(),
+            appId: self.appId,
+            env: self.environment,
+            callBack: self)
+        self.navigationController?.pushViewController (cfViewController, animated: true);
+    }
+    
+    // Example IBAction for SEAMLESS pay button
+    @IBAction func SeamlessProBtn(_ sender: Any) {
+        let CF = CFViewController(
+            params: getSeamlessInputParams(),
+                appId: self.appId,
+                env: self.environment,
+                callBack: self)
+        self.navigationController?.pushViewController(CF, animated: true)
+    }
+    
+    
+    
+    
+    private func getSeamlessInputParams()-> Dictionary<String, String> {
+        
+        
+        //Only pass values for one payment mode. If payment mode related info is not sent in the input params the normal web checkout flow will happen where the user selects from a list of payment modes.
+        
+        // CARD PAYMENT
+        //        let cardParams = [
+        //            "paymentOption": "card",
+        //            "card_number": cardNumberTextbox.text ?? "",
+        //            "card_holder": cardHolderTextbox.text ?? "",
+        //            "card_expiryMonth": expiryMonthTextbox.text ?? "",
+        //            "card_expiryYear": expiryYearTextbox.text ?? "",
+        //            "card_cvv": cvvCodeTextbox.text ?? ""
+        //        ]
+        
+        // NET BANKING
+                let netBankingParams = [
+                    "paymentOption": "nb",
+                    "paymentCode": "3333" // Bank code https://docs.cashfree.com/docs/resources/#net-banking
+                ]
+        
+        // WALLET
+        //        let walletParams = [
+        //            "paymentOption": "wallet",
+        //            "paymentCode": "4001" // Bank code https://docs.cashfree.com/docs/resources/#wallet
+        //        ]
+        
+        // UPI
+        //        let upiParams = [
+        //            "paymentOption": "upi",
+        //            "upi_vpa": "testsuccess@gocash"
+        //        ]
+        
+        // PAYPAL
+        //        let paypalParams = [
+        //            "paymentOption": "paypal"
+        //        ]
+                let paymentParams = getPaymentParams().merging(netBankingParams) { (_, current) in current }
+                return paymentParams
+        }
+    
+    
+    func getPaymentParams() -> Dictionary<String, String> {
+        return [
+            "orderId": "Order121",
+            "tokenData" : "uS9JCN4MzUIJiOicGbhJCLiQ1VKJiOiAXe0Jye.2u0nI3QGOyM2M1gjM4EGZ1IiOiQHbhN3XiwSO1QzM5gzM3UTM6ICc4VmIsIiUOlkI6ISej5WZyJXdDJXZkJ3biwSM6ICduV3btFkclRmcvJCLiEjMxIXZkJ3TiojIklkclRmcvJye.9LQIerz3Ybl5SfRCcdqFVOdKTb4KO_5v5Hpxa5g2mWyN-p4PkFwt65wmZTrLxr4khI",
+            "orderAmount": "1",
+            "customerName": "Customer Name",
+            "orderNote": "Order Note",
+            "orderCurrency": "INR",
+            "customerPhone": "9012341234",
+            "customerEmail": "sample@gmail.com",
+            "notifyUrl": "https://test.gocashfree.com/notify"
+        ]
+    }
+    
+}
 
-    let merchantName = "YOUR-MERCHANT-NAME"
-    let notifyUrl = "YOUR-HTTPS-NOTIFY-URL"
+extension ViewController : ResultDelegate {
     
-    let orderId = "mobile-test1001"
-    let orderAmount = "52"
-    let customerEmail = "iostester@email.com"
-    let customerPhone = "9876543210"
-    let orderNote = "This is a test note"
-    let customerName = "John Doe"
-    
-    let paymentReady = "Tt9JCN4MzUIJiOicGbhJCLiQ1VKJiOiAXe0Jye.dz9JSMhJTMyITYyY2N1MWNiojI0xWYz9lIsgTMyEzNykDN1EjOiAHelJCLiIlTJJiOik3YuVmcyV3QyVGZy9mIsIiM1IiOiQnb19WbBJXZkJ3biwiIxADMxQ3clRXLlxWai9WbiojIklkclRmcvJye.sURzYR3umo8MjVyNJjNrROkh-zlOm5JEmOqf7H2biTY0l7Q3TiwZxT7V4CjtMhsy7-"
-    
-    // WEBVIEW CHECKOUT you can provide paymentModes to show on cashfree payment page. Eg: cc, dc, nb, paypal etc
-    let paymentModes = ""
-    
-    // Below are required in SEAMLESS PRO Integration
-    // Available values: card, nb, wallet, upi
-    let paymentOption = "card" // Use "savedCard" in case you want to use Saved Card. You must pass the card_id as shown on line 110.
-    
-    // Required if using paymentOption nb or wallet. Eg: "3333" for nb Test Bank. "4001" or "4002" for Wallet.
-    let paymentCode = ""
-    
-    // Required if using paymentOption upi. "testsuccess@gocash"
-    let upiVpa = ""
-    
-    // Required if you need to use googlepay use "gpay". The number provided in customerPhone will receive googlepay request.
-    let upiMode = ""
-    
+
     // This is Struct for the result (See viewDidAppear)
     struct Result : Codable {
         let orderId: String
@@ -68,75 +125,9 @@ class ViewController: UIViewController {
     }
     // End of Struct for the result
     
-    // Example IBAction for WEBVIEW CHECKOUT pay button
-    @IBAction func payButton(_ sender: Any) {
-        // Use below code If you need WEBVIEW CHECKOUT
-        let CF = CFViewController()
-        if paymentReady != "" {
-            CF.createOrder(orderId: orderId, orderAmount: orderAmount, customerEmail: customerEmail, customerPhone: customerPhone, paymentReady: paymentReady, orderNote: orderNote, customerName: customerName, notifyUrl: notifyUrl, paymentModes: paymentModes)
-            
-            self.navigationController?.pushViewController(CF, animated: true)
-        } else {
-            print("paymentReady is empty")
-        }
-    }
-    
-    // Example IBAction for SEAMLESS PRO pay button
-    @IBAction func SeamlessProBtn(_ sender: Any) {
-        // Use this only if you have SEAMLESS PRO enabled at Cashfree
-        let CF = SeamlessProVC()
-        let paymentParams = [
-            "orderId": orderId,
-            "orderAmount": orderAmount,
-            "customerName": customerName,
-            "orderNote": orderNote,
-            "customerPhone": customerPhone,
-            "customerEmail": customerEmail,
-            "paymentOption": paymentOption,
-            "notifyUrl": notifyUrl,
-            "source": source_config,
-            
-            //If you don't pass the below key:values for card payment then it will not be sent in the request.
-            "card_number": "",
-            "card_holder": "",
-            "card_expiryMonth": "",
-            "card_expiryYear": "",
-            "card_cvv": "",
-            
-            //If you want to Save a Card, add below line. 1 will save the card_number, card_holder, card_expiryMonth, card_expiryyear & card_cvv
-            "card_save": "1",
-            
-            //If you want to use a Saved Card, add below line instead of the key values from line 99 to 104
-            "card_id": "CARD-ID-RECEIVED-FROM-API-CALL", //Eg: "card_id": "D994260E311BFAC9535911E783478914"
-            
-            "paymentCode": paymentCode,
-            "upi_vpa": upiVpa,
-            "upiMode": upiMode,
-            "paymentReady": paymentReady
-        ]
-        
-        CF.createOrderParams(paymentParams: paymentParams)
-        self.navigationController?.pushViewController(CF, animated: true)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Use below code If you need WebView Checkout
-        let CF = CFViewController();
-        
-        // Use below SeamlessProVC ONLY if you have SEAMLESS PRO enabled at Cashfree
-//        let CF = SeamlessProVC();
-        
-        CF.setConfig(env: environment, appId: appId)
-    }
-    
-    // MARK: Step 5 - Below function is used for Tab Bar Controller contains the result after payment is completed by the user.
-    override func viewDidAppear(_ animated: Bool) {
-        let paymentVC = CFViewController()
-        let transactionResult = paymentVC.getResult()
-        let inputJSON = "\(transactionResult)"
+    func onPaymentCompletion(msg: String) {
+        print("JSON value : \(msg)")
+        let inputJSON = "\(msg)"
         let inputData = inputJSON.data(using: .utf8)!
         let decoder = JSONDecoder()
         if inputJSON != "" {
@@ -152,4 +143,6 @@ class ViewController: UIViewController {
             print("BDEBUG: transactionResult is empty")
         }
     }
+    
+
 }

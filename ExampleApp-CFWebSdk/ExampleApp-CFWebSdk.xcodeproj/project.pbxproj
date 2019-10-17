@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0C726C0235766210018F1EB /* CFSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C726BE2357661C0018F1EB /* CFSDK.framework */; };
+		C0C726C1235766210018F1EB /* CFSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0C726BE2357661C0018F1EB /* CFSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E5BB044F216E31CA0066108B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB044E216E31CA0066108B /* AppDelegate.swift */; };
 		E5BB0451216E31CA0066108B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB0450216E31CA0066108B /* ViewController.swift */; };
 		E5BB0454216E31CA0066108B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0452216E31CA0066108B /* Main.storyboard */; };
 		E5BB0456216E31CB0066108B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0455216E31CB0066108B /* Assets.xcassets */; };
 		E5BB0459216E31CB0066108B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0457216E31CB0066108B /* LaunchScreen.storyboard */; };
-		E5E77D7C216F209F003C66AD /* CFWebSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E77D7A216F2097003C66AD /* CFWebSdk.framework */; };
-		E5E77D7D216F209F003C66AD /* CFWebSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5E77D7A216F2097003C66AD /* CFWebSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E5BB0465216F097D0066108B /* Embed Frameworks */ = {
+		C0C726BD235765E70018F1EB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E5E77D7D216F209F003C66AD /* CFWebSdk.framework in Embed Frameworks */,
+				C0C726C1235766210018F1EB /* CFSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C0C726BE2357661C0018F1EB /* CFSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFSDK.framework; sourceTree = "<group>"; };
 		E5BB044B216E31CA0066108B /* ExampleApp-CFWebSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExampleApp-CFWebSdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BB044E216E31CA0066108B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5BB0450216E31CA0066108B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		E5BB0455216E31CB0066108B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5BB0458216E31CB0066108B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5BB045A216E31CB0066108B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5E77D7A216F2097003C66AD /* CFWebSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFWebSdk.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/CFWebSdk-fnxwolqwrpgmmqflxxvjlcvlqjww/Build/Products/Debug-iphoneos/CFWebSdk.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5E77D7C216F209F003C66AD /* CFWebSdk.framework in Frameworks */,
+				C0C726C0235766210018F1EB /* CFSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 		E5BB0460216F095E0066108B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5E77D7A216F2097003C66AD /* CFWebSdk.framework */,
+				C0C726BE2357661C0018F1EB /* CFSDK.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -101,7 +101,7 @@
 				E5BB0447216E31CA0066108B /* Sources */,
 				E5BB0448216E31CA0066108B /* Frameworks */,
 				E5BB0449216E31CA0066108B /* Resources */,
-				E5BB0465216F097D0066108B /* Embed Frameworks */,
+				C0C726BD235765E70018F1EB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,7 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cashfreetest1.ExampleApp-CFWebSdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -347,7 +347,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cashfreetest1.ExampleApp-CFWebSdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

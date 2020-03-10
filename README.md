@@ -163,7 +163,7 @@ Add the following parameters to params dictionary for initiating a seamless card
   
 #### Net Banking
 
-Add the following parameters to params map as illustrated before invoking doPayment() for initiating a seamless net banking transaction.
+Add the following parameters to params dictionary as illustrated before invoking doPayment() for initiating a seamless net banking transaction.
 
 ```swift
 [
@@ -177,7 +177,7 @@ All valid Bank Code could can be seen [here](https://docs.cashfree.com/docs/reso
 
 #### Wallet
 
-Add the following parameters to params map as illustrated before invoking doPayment() for initiating a seamless wallet transaction.
+Add the following parameters to params dictionary as illustrated before invoking doPayment() for initiating a seamless wallet transaction.
 
 ```swift
 [
@@ -191,7 +191,7 @@ All valid Wallet Codes could can be seen [here](https://docs.cashfree.com/docs/r
 
 #### UPI
 
-Add the following parameters to params map as illustrated before invoking doPayment() for initiating a seamless UPI transaction.
+Add the following parameters to params dictionary as illustrated before invoking doPayment() for initiating a seamless UPI transaction.
 
 ```swift
 [
@@ -203,7 +203,7 @@ Add the following parameters to params map as illustrated before invoking doPaym
 
 #### Paypal
 
-Add the following parameter to params map as illustrated before invoking doPayment() for initiating a seamless Paypal transaction.
+Add the following parameter to params dictionary as illustrated before invoking doPayment() for initiating a seamless Paypal transaction.
 
 ```swift
 [

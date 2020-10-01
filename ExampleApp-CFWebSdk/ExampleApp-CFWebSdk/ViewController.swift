@@ -16,27 +16,24 @@ class ViewController: UIViewController {
     // MARK:
     let environment = "TEST"
     // appId from your merchant dashboard.
-    let appId = "275432e3853bd165afbf5272"
+    let appId = "<<APP_ID>>"
     
     // Example IBAction for normal WEBVIEW CHECKOUT pay button
     @IBAction func payButton(_ sender: Any) {
         // Use below code If you need WEBVIEW CHECKOUT
-        let cfViewController = CFViewController (
+        CFPaymentService().doWebCheckoutPayment(
             params: getPaymentParams(),
-            appId: self.appId,
             env: self.environment,
-            callBack: self)
-        self.navigationController?.pushViewController (cfViewController, animated: true);
+            callback: self)
     }
     
     // Example IBAction for SEAMLESS pay button
     @IBAction func SeamlessProBtn(_ sender: Any) {
-        let CF = CFViewController(
+        CFPaymentService().doWebCheckoutPayment(
             params: getSeamlessInputParams(),
-                appId: self.appId,
                 env: self.environment,
-                callBack: self)
-        self.navigationController?.pushViewController(CF, animated: true)
+            callback: self)
+        
     }
     
     
@@ -87,7 +84,8 @@ class ViewController: UIViewController {
     func getPaymentParams() -> Dictionary<String, String> {
         return [
             "orderId": "Order121",
-            "tokenData" : "uS9JCN4MzUIJiOicGbhJCLiQ1VKJiOiAXe0Jye.2u0nI3QGOyM2M1gjM4EGZ1IiOiQHbhN3XiwSO1QzM5gzM3UTM6ICc4VmIsIiUOlkI6ISej5WZyJXdDJXZkJ3biwSM6ICduV3btFkclRmcvJCLiEjMxIXZkJ3TiojIklkclRmcvJye.9LQIerz3Ybl5SfRCcdqFVOdKTb4KO_5v5Hpxa5g2mWyN-p4PkFwt65wmZTrLxr4khI",
+            "appId": self.appId,
+            "tokenData" : "<<TOKEN_DATA>>",
             "orderAmount": "1",
             "customerName": "Customer Name",
             "orderNote": "Order Note",

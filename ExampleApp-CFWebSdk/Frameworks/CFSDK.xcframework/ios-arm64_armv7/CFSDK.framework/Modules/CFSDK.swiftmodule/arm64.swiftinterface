@@ -1,0 +1,73 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios10.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CFSDK
+@_exported import CFSDK
+import Foundation
+import SafariServices
+import Swift
+import UIKit
+import WebKit
+@objc public enum CFUPIApp : Swift.Int {
+  case GPAY
+  case PHONEPAY
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum CF_ENV : Swift.Int {
+  case TEST
+  case PROD
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol ResultDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func onPaymentCompletion(msg: Swift.String)
+}
+@_hasMissingDesignatedInitializers @objc public class CFViewController : UIKit.UIViewController, WebKit.WKScriptMessageHandler, WebKit.WKUIDelegate {
+  @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callBack: CFSDK.ResultDelegate)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension CFViewController : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+@_inheritsConvenienceInitializers @objc public class CFPaymentService : ObjectiveC.NSObject {
+  public static func validateUpiUrlScheme(urlScheme: Swift.String) -> Swift.Bool
+  @objc public func doWebCheckoutPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc public func doUPIPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc public func doAmazonPayPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@_hasMissingDesignatedInitializers @objc public class CFUPIViewController : UIKit.UIViewController {
+  @objc public var upiCompletedDeligate: CFSDK.ResultDelegate?
+  @objc public init(orderParams: Swift.Dictionary<Swift.String, Any>, environment: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc deinit
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+@_hasMissingDesignatedInitializers @objc public class AmazonPayViewController : UIKit.UIViewController {
+  @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
+}
+extension AmazonPayViewController : SafariServices.SFSafariViewControllerDelegate {
+  @objc dynamic public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
+}
+extension CFSDK.CFUPIApp : Swift.Equatable {}
+extension CFSDK.CFUPIApp : Swift.Hashable {}
+extension CFSDK.CFUPIApp : Swift.RawRepresentable {}
+extension CFSDK.CF_ENV : Swift.Equatable {}
+extension CFSDK.CF_ENV : Swift.Hashable {}
+extension CFSDK.CF_ENV : Swift.RawRepresentable {}

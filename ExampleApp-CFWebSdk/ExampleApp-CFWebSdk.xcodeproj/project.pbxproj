@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C0C726C0235766210018F1EB /* CFSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C726BE2357661C0018F1EB /* CFSDK.framework */; };
-		C0C726C1235766210018F1EB /* CFSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0C726BE2357661C0018F1EB /* CFSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC93746125259F9A006B4048 /* CFSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC93745A2525991C006B4048 /* CFSDK.xcframework */; };
+		DC93746225259F9A006B4048 /* CFSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC93745A2525991C006B4048 /* CFSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5BB044F216E31CA0066108B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB044E216E31CA0066108B /* AppDelegate.swift */; };
 		E5BB0451216E31CA0066108B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB0450216E31CA0066108B /* ViewController.swift */; };
 		E5BB0454216E31CA0066108B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0452216E31CA0066108B /* Main.storyboard */; };
@@ -17,13 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C0C726BD235765E70018F1EB /* Embed Frameworks */ = {
+		DC93746325259F9A006B4048 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C0C726C1235766210018F1EB /* CFSDK.framework in Embed Frameworks */,
+				DC93746225259F9A006B4048 /* CFSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		C0C726BE2357661C0018F1EB /* CFSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFSDK.framework; sourceTree = "<group>"; };
+		DC93745A2525991C006B4048 /* CFSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CFSDK.xcframework; sourceTree = "<group>"; };
 		E5BB044B216E31CA0066108B /* ExampleApp-CFWebSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExampleApp-CFWebSdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BB044E216E31CA0066108B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5BB0450216E31CA0066108B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C726C0235766210018F1EB /* CFSDK.framework in Frameworks */,
+				DC93746125259F9A006B4048 /* CFSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +87,7 @@
 		E5BB0460216F095E0066108B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC93745A2525991C006B4048 /* CFSDK.xcframework */,
 				C0C726BE2357661C0018F1EB /* CFSDK.framework */,
 			);
 			path = Frameworks;
@@ -101,7 +103,7 @@
 				E5BB0447216E31CA0066108B /* Sources */,
 				E5BB0448216E31CA0066108B /* Frameworks */,
 				E5BB0449216E31CA0066108B /* Resources */,
-				C0C726BD235765E70018F1EB /* Embed Frameworks */,
+				DC93746325259F9A006B4048 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

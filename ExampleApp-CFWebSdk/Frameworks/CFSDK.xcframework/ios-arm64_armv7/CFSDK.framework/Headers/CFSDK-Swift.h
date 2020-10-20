@@ -241,7 +241,8 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 
 typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
-  CFUPIAppPHONEPAY = 1,
+  CFUPIAppPHONEPE = 1,
+  CFUPIAppPAYTM = 2,
 };
 
 
@@ -539,7 +540,8 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 
 typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
-  CFUPIAppPHONEPAY = 1,
+  CFUPIAppPHONEPE = 1,
+  CFUPIAppPAYTM = 2,
 };
 
 

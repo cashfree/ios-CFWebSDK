@@ -41,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>paytm</string>
+		<string>phonepe</string>
+		<string>tez</string>
+	</array>
 </dict>
 </plist>

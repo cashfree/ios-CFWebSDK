@@ -36,10 +36,42 @@ class ViewController: UIViewController {
         
     }
     
+    // Example IBAction for SEAMLESS pay button
+    @IBAction func gpayBtn(_ sender: Any) {
+        CFPaymentService().doUPIPayment(
+            params: getUPIInputParams(appName: CFUPIApp.GPAY),
+                env: self.environment,
+            callback: self)
+        
+    }
+    
+    // Example IBAction for SEAMLESS pay button
+    @IBAction func phonePeBtn(_ sender: Any) {
+        CFPaymentService().doUPIPayment(
+            params: getUPIInputParams(appName: CFUPIApp.PHONEPAY),
+                env: self.environment,
+            callback: self)
+        
+    }
     
     
+    // Example IBAction for SEAMLESS pay button
+    @IBAction func PaytmBtn(_ sender: Any) {
+        CFPaymentService().doUPIPayment(
+            params: getUPIInputParams(appName: CFUPIApp.PAYTM),
+                env: self.environment,
+            callback: self)
+        
+    }
     
-    private func getSeamlessInputParams()-> Dictionary<String, String> {
+    
+    private func getUPIInputParams(appName: CFUPIApp)-> Dictionary<String, Any> {
+        var paymentParams = getPaymentParams()
+        paymentParams["appName"] = appName
+        return paymentParams
+    }
+    
+    private func getSeamlessInputParams()-> Dictionary<String, Any> {
         
         
         //Only pass values for one payment mode. If payment mode related info is not sent in the input params the normal web checkout flow will happen where the user selects from a list of payment modes.
@@ -81,7 +113,7 @@ class ViewController: UIViewController {
         }
     
     
-    func getPaymentParams() -> Dictionary<String, String> {
+    func getPaymentParams() -> Dictionary<String, Any> {
         return [
             "orderId": "Order121",
             "appId": self.appId,

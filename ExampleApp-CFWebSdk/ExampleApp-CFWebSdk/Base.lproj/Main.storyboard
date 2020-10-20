@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H22-xx-tDq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H22-xx-tDq">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,30 +16,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tu8-wV-glb">
-                                <rect key="frame" x="102.5" y="340.5" width="170" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tu8-wV-glb">
+                                <rect key="frame" x="102" y="217" width="170" height="30"/>
                                 <state key="normal" title="Seamless Web Checkout"/>
                                 <connections>
                                     <action selector="SeamlessProBtn:" destination="BYZ-38-t0r" eventType="touchDown" id="LgP-NK-qmU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BC-nV-QmJ">
-                                <rect key="frame" x="102" y="266" width="154" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BC-nV-QmJ">
+                                <rect key="frame" x="110" y="179" width="154" height="30"/>
                                 <state key="normal" title="Normal Web Checkout"/>
                                 <connections>
                                     <action selector="payButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="il5-5S-UgF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAZ-qc-e00">
+                                <rect key="frame" x="169" y="255" width="36" height="30"/>
+                                <state key="normal" title="GPay"/>
+                                <connections>
+                                    <action selector="gpayBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ns8-LQ-sUz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsE-57-Ofn">
+                                <rect key="frame" x="157" y="293" width="61" height="30"/>
+                                <state key="normal" title="PhonePe"/>
+                                <connections>
+                                    <action selector="phonePeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tLd-d2-37i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbJ-X5-azP">
+                                <rect key="frame" x="166" y="331" width="43" height="30"/>
+                                <state key="normal" title="Paytm"/>
+                                <connections>
+                                    <action selector="PaytmBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cQN-Nl-DEB"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8BC-nV-QmJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cv1-dy-sIR"/>
+                            <constraint firstItem="AsE-57-Ofn" firstAttribute="centerX" secondItem="zbJ-X5-azP" secondAttribute="centerX" id="51I-GY-K3Q"/>
+                            <constraint firstItem="zbJ-X5-azP" firstAttribute="top" secondItem="AsE-57-Ofn" secondAttribute="bottom" constant="8" id="5r2-Fe-Jkw"/>
+                            <constraint firstItem="AsE-57-Ofn" firstAttribute="centerX" secondItem="EAZ-qc-e00" secondAttribute="centerX" id="Bq0-HP-BDr"/>
+                            <constraint firstItem="8BC-nV-QmJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-8.5" id="Cv1-dy-sIR"/>
                             <constraint firstItem="tu8-wV-glb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Me1-47-9Qs"/>
+                            <constraint firstItem="EAZ-qc-e00" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="169" id="PmD-5Y-aG1"/>
                             <constraint firstItem="tu8-wV-glb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Q7V-GC-By2"/>
+                            <constraint firstItem="EAZ-qc-e00" firstAttribute="centerX" secondItem="tu8-wV-glb" secondAttribute="centerX" id="W1Z-Tp-VHi"/>
+                            <constraint firstItem="AsE-57-Ofn" firstAttribute="top" secondItem="EAZ-qc-e00" secondAttribute="bottom" constant="8" id="ZwA-8k-UdC"/>
                             <constraint firstItem="tu8-wV-glb" firstAttribute="top" secondItem="8BC-nV-QmJ" secondAttribute="bottom" constant="44.5" id="qbN-Aq-dSc"/>
+                            <constraint firstItem="EAZ-qc-e00" firstAttribute="top" secondItem="tu8-wV-glb" secondAttribute="bottom" constant="8" id="vHp-qj-lGt"/>
                         </constraints>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="20" bottom="0.0" trailing="20"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aO8-pF-zxj"/>
                 </viewController>

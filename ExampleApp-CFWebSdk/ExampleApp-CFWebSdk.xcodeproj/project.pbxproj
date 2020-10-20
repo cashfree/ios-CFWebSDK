@@ -31,7 +31,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C0C726BE2357661C0018F1EB /* CFSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFSDK.framework; sourceTree = "<group>"; };
 		DC93745A2525991C006B4048 /* CFSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CFSDK.xcframework; sourceTree = "<group>"; };
 		E5BB044B216E31CA0066108B /* ExampleApp-CFWebSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExampleApp-CFWebSdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BB044E216E31CA0066108B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				DC93745A2525991C006B4048 /* CFSDK.xcframework */,
-				C0C726BE2357661C0018F1EB /* CFSDK.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

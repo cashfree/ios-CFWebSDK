@@ -9,7 +9,8 @@ import UIKit
 import WebKit
 @objc public enum CFUPIApp : Swift.Int {
   case GPAY
-  case PHONEPAY
+  case PHONEPE
+  case PAYTM
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {

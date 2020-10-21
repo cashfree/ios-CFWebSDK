@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     // Example IBAction for SEAMLESS pay button
     @IBAction func phonePeBtn(_ sender: Any) {
         CFPaymentService().doUPIPayment(
-            params: getUPIInputParams(appName: CFUPIApp.PHONEPAY),
+            params: getUPIInputParams(appName: CFUPIApp.PHONEPE),
                 env: self.environment,
             callback: self)
         

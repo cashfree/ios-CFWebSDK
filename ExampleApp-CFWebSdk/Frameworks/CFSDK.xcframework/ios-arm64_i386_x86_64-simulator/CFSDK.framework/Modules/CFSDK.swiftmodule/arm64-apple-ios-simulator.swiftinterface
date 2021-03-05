@@ -5,12 +5,14 @@
 import Foundation
 import SafariServices
 import Swift
+import SystemConfiguration
 import UIKit
 import WebKit
 @objc public enum CFUPIApp : Swift.Int {
   case GPAY
   case PHONEPE
   case PAYTM
+  case NONE
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -31,9 +33,10 @@ import WebKit
 }
 @_hasMissingDesignatedInitializers @objc public class CFViewController : UIKit.UIViewController, WebKit.WKScriptMessageHandler, WebKit.WKUIDelegate {
   @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callBack: CFSDK.ResultDelegate)
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
   @objc override dynamic public func viewDidLoad()
+  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
   @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
 }
@@ -46,16 +49,9 @@ extension CFViewController : WebKit.WKNavigationDelegate {
   @objc public func doWebCheckoutPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func doUPIPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func doAmazonPayPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
+  @objc public func getUPIApps() -> [[Swift.String : Swift.String]]
   @objc deinit
   @objc override dynamic public init()
-}
-@_hasMissingDesignatedInitializers @objc public class CFUPIViewController : UIKit.UIViewController {
-  @objc public var upiCompletedDeligate: CFSDK.ResultDelegate?
-  @objc public init(orderParams: Swift.Dictionary<Swift.String, Any>, environment: Swift.String, callback: CFSDK.ResultDelegate)
-  @objc deinit
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
 }
 @_hasMissingDesignatedInitializers @objc public class AmazonPayViewController : UIKit.UIViewController {
   @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)

@@ -236,6 +236,7 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 - (void)doWebCheckoutPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doUPIPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doAmazonPayPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
+- (NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)getUPIApps SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -243,35 +244,28 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
+  CFUPIAppNONE = 3,
 };
-
-
-SWIFT_CLASS("_TtC5CFSDK19CFUPIViewController")
-@interface CFUPIViewController : UIViewController
-@property (nonatomic, strong) id <ResultDelegate> _Nullable upiCompletedDeligate;
-- (nonnull instancetype)initWithOrderParams:(NSDictionary<NSString *, id> * _Nonnull)orderParams environment:(NSString * _Nonnull)environment callback:(id <ResultDelegate> _Nonnull)callback OBJC_DESIGNATED_INITIALIZER;
-- (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)animated;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
 
 @class WKUserContentController;
 @class WKScriptMessage;
+@class WKWebView;
+@class WKWebViewConfiguration;
+@class WKNavigationAction;
+@class WKWindowFeatures;
 
 SWIFT_CLASS("_TtC5CFSDK16CFViewController")
 @interface CFViewController : UIViewController <WKScriptMessageHandler, WKUIDelegate>
 - (nonnull instancetype)initWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callBack:(id <ResultDelegate> _Nonnull)callBack OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+- (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
-@class WKWebView;
-@class WKNavigationAction;
 @class WKNavigation;
 
 @interface CFViewController (SWIFT_EXTENSION(CFSDK)) <WKNavigationDelegate>
@@ -289,6 +283,7 @@ SWIFT_PROTOCOL("_TtP5CFSDK14ResultDelegate_")
 @protocol ResultDelegate <NSObject>
 - (void)onPaymentCompletionWithMsg:(NSString * _Nonnull)msg;
 @end
+
 
 
 
@@ -535,6 +530,7 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 - (void)doWebCheckoutPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doUPIPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doAmazonPayPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
+- (NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)getUPIApps SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -542,35 +538,28 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
+  CFUPIAppNONE = 3,
 };
-
-
-SWIFT_CLASS("_TtC5CFSDK19CFUPIViewController")
-@interface CFUPIViewController : UIViewController
-@property (nonatomic, strong) id <ResultDelegate> _Nullable upiCompletedDeligate;
-- (nonnull instancetype)initWithOrderParams:(NSDictionary<NSString *, id> * _Nonnull)orderParams environment:(NSString * _Nonnull)environment callback:(id <ResultDelegate> _Nonnull)callback OBJC_DESIGNATED_INITIALIZER;
-- (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)animated;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
 
 @class WKUserContentController;
 @class WKScriptMessage;
+@class WKWebView;
+@class WKWebViewConfiguration;
+@class WKNavigationAction;
+@class WKWindowFeatures;
 
 SWIFT_CLASS("_TtC5CFSDK16CFViewController")
 @interface CFViewController : UIViewController <WKScriptMessageHandler, WKUIDelegate>
 - (nonnull instancetype)initWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callBack:(id <ResultDelegate> _Nonnull)callBack OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+- (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
-@class WKWebView;
-@class WKNavigationAction;
 @class WKNavigation;
 
 @interface CFViewController (SWIFT_EXTENSION(CFSDK)) <WKNavigationDelegate>
@@ -588,6 +577,7 @@ SWIFT_PROTOCOL("_TtP5CFSDK14ResultDelegate_")
 @protocol ResultDelegate <NSObject>
 - (void)onPaymentCompletionWithMsg:(NSString * _Nonnull)msg;
 @end
+
 
 
 
@@ -834,6 +824,7 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 - (void)doWebCheckoutPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doUPIPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doAmazonPayPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
+- (NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)getUPIApps SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -841,35 +832,28 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
+  CFUPIAppNONE = 3,
 };
-
-
-SWIFT_CLASS("_TtC5CFSDK19CFUPIViewController")
-@interface CFUPIViewController : UIViewController
-@property (nonatomic, strong) id <ResultDelegate> _Nullable upiCompletedDeligate;
-- (nonnull instancetype)initWithOrderParams:(NSDictionary<NSString *, id> * _Nonnull)orderParams environment:(NSString * _Nonnull)environment callback:(id <ResultDelegate> _Nonnull)callback OBJC_DESIGNATED_INITIALIZER;
-- (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)animated;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
 
 @class WKUserContentController;
 @class WKScriptMessage;
+@class WKWebView;
+@class WKWebViewConfiguration;
+@class WKNavigationAction;
+@class WKWindowFeatures;
 
 SWIFT_CLASS("_TtC5CFSDK16CFViewController")
 @interface CFViewController : UIViewController <WKScriptMessageHandler, WKUIDelegate>
 - (nonnull instancetype)initWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callBack:(id <ResultDelegate> _Nonnull)callBack OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+- (void)viewWillDisappear:(BOOL)animated;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
-@class WKWebView;
-@class WKNavigationAction;
 @class WKNavigation;
 
 @interface CFViewController (SWIFT_EXTENSION(CFSDK)) <WKNavigationDelegate>
@@ -887,6 +871,7 @@ SWIFT_PROTOCOL("_TtP5CFSDK14ResultDelegate_")
 @protocol ResultDelegate <NSObject>
 - (void)onPaymentCompletionWithMsg:(NSString * _Nonnull)msg;
 @end
+
 
 
 

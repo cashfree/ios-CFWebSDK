@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     @IBAction func gpayBtn(_ sender: Any) {
         
         // We recommend that you first get the list of Installed UPI apps using the method mentioned below
-        let appName = (self.upiApps?.filter{ $0["appName"] == "GOOGLEPAY" })?.first?["id"] ?? ""
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "GOOGLEPAY" })?.first?["id"] ?? ""
         
         CFPaymentService().doUPIPayment(
             params: getUPIInputParams(appName: appName),
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     @IBAction func phonePeBtn(_ sender: Any) {
         
         // We recommend that you first get the list of Installed UPI apps using the method mentioned below
-        let appName = (self.upiApps?.filter{ $0["appName"] == "PHONEPE" })?.first?["id"] ?? ""
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "PHONEPE" })?.first?["id"] ?? ""
         
         CFPaymentService().doUPIPayment(
             params: getUPIInputParams(appName: appName),
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     @IBAction func PaytmBtn(_ sender: Any) {
         
         // We recommend that you first get the list of Installed UPI apps using the method mentioned below
-        let appName = (self.upiApps?.filter{ $0["appName"] == "PAYTM" })?.first?["id"] ?? ""
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "PAYTM" })?.first?["id"] ?? ""
         
         CFPaymentService().doUPIPayment(
             params: getUPIInputParams(appName: appName),

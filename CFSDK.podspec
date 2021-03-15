@@ -15,10 +15,10 @@ s.summary		= "Cocoapod implementation off Cashfree's Payment SDK"
 s.description		= <<-DESC
 	Cashfree is a next generation payment gateway that helps 50,000+ Indian and global businesses collect and disburse payments via 100+ payment methods including Visa, MasterCard, Rupay, UPI, IMPS, NEFT, Paytm & other wallets, Pay Later and various EMI options. Cashfree is backed by Silicon Valley investor Y Combinator and was incubated by Paypal.
 		  DESC
-s.homepage		= "https://www.cashfree.com/"
+s.homepage		= "https://github.com/cashfree/ios-CFWebSDK.git"
 s.license		= 'MIT'
 s.author			= { "Cashfree" => "developer@cashfree.com" }
-s.source			= { :git => "", :tag => s.version }
+s.source			= { :git => "https://github.com/cashfree/ios-CFWebSDK.git", :tag => s.version }
 
 s.platform		= :iOS, "10.0"
 s.vendored_frameworks	= "CFSDK.xcframework"

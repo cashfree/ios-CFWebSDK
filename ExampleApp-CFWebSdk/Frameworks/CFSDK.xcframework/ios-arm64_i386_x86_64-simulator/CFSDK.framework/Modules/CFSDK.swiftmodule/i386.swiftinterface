@@ -50,8 +50,8 @@ extension CFViewController : WebKit.WKNavigationDelegate {
   @objc public func doUPIPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func doAmazonPayPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func getUPIApps() -> [[Swift.String : Swift.String]]
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AmazonPayViewController : UIKit.UIViewController {
   @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)

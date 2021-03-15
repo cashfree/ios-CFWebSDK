@@ -20,7 +20,7 @@ s.license		= 'MIT'
 s.author			= { "Cashfree" => "developer@cashfree.com" }
 s.source			= { :git => "https://github.com/cashfree/ios-CFWebSDK.git", :tag => s.version }
 
-s.platform		= :iOS, "10.0"
+s.platform		= :ios, "10.0"
 s.vendored_frameworks	= "CFSDK.xcframework"
 s.swift_version		= "5.0"
 

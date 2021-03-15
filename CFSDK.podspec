@@ -17,7 +17,7 @@ s.description		= <<-DESC
 		  DESC
 s.homepage		= "https://github.com/cashfree/ios-CFWebSDK.git"
 s.license		= 'MIT'
-s.author			= { "Cashfree" => "developer@cashfree.com" }
+s.author			= { "Cashfree" => "developers@cashfree.com" }
 s.source			= { :git => "https://github.com/cashfree/ios-CFWebSDK.git", :tag => s.version }
 
 s.platform		= :ios, "10.0"

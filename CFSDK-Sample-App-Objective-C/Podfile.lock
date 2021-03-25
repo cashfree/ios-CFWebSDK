@@ -1,0 +1,16 @@
+PODS:
+  - CFSDK (3.0.0-beta)
+
+DEPENDENCIES:
+  - CFSDK (= 3.0.0-beta)
+
+SPEC REPOS:
+  trunk:
+    - CFSDK
+
+SPEC CHECKSUMS:
+  CFSDK: ae9a5bfc2bee7e26ce73ed81c008022eb9cbeff5
+
+PODFILE CHECKSUM: 2efa1e22549fb46c1df1f1b285a8187b534d0e05
+
+COCOAPODS: 1.10.1

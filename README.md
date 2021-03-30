@@ -6,7 +6,7 @@ CFSDK is an iOS Payment SDK created by Cashfree. This SDK can be used to integra
 1. Open the project in the terminal and type `pod init`
 2. Open the generated pod file in a text editor and add the following line.
 ```
-pod 'CFSDK', '3.0.0
+pod 'CFSDK', '2.0.5-beta'
 ```
 3. Go back to the terminal and type `pod install`
 4. Close the project and open the ".XCworkspace"

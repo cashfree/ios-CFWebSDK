@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A19979E225DFCBE100656071 /* CFSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19979E125DFCBE100656071 /* CFSDK.xcframework */; };
+		9562BAE65493743B5B22C08E /* Pods_ExampleApp_CFWebSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BB3C64EC52FCCBEF379E49 /* Pods_ExampleApp_CFWebSdk.framework */; };
 		E5BB044F216E31CA0066108B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB044E216E31CA0066108B /* AppDelegate.swift */; };
 		E5BB0451216E31CA0066108B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB0450216E31CA0066108B /* ViewController.swift */; };
 		E5BB0454216E31CA0066108B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0452216E31CA0066108B /* Main.storyboard */; };
@@ -29,7 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A19979E125DFCBE100656071 /* CFSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CFSDK.xcframework; path = "../../../../../Documents/cf-ios-sdk/CFSDK.xcframework"; sourceTree = "<group>"; };
+		15BB3C64EC52FCCBEF379E49 /* Pods_ExampleApp_CFWebSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleApp_CFWebSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C4208429E3FF7155B5F77F /* Pods-ExampleApp-CFWebSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp-CFWebSdk.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp-CFWebSdk/Pods-ExampleApp-CFWebSdk.debug.xcconfig"; sourceTree = "<group>"; };
 		E5BB044B216E31CA0066108B /* ExampleApp-CFWebSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExampleApp-CFWebSdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BB044E216E31CA0066108B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5BB0450216E31CA0066108B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		E5BB0455216E31CB0066108B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5BB0458216E31CB0066108B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5BB045A216E31CB0066108B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF1F6B32FD7CF904E7D06FE2 /* Pods-ExampleApp-CFWebSdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp-CFWebSdk.release.xcconfig"; path = "Target Support Files/Pods-ExampleApp-CFWebSdk/Pods-ExampleApp-CFWebSdk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,19 +46,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19979E225DFCBE100656071 /* CFSDK.xcframework in Frameworks */,
+				9562BAE65493743B5B22C08E /* Pods_ExampleApp_CFWebSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11F9B3B928ED84FFB3AFA23E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15BB3C64EC52FCCBEF379E49 /* Pods_ExampleApp_CFWebSdk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6BC5E67E68B16249764DA5A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49C4208429E3FF7155B5F77F /* Pods-ExampleApp-CFWebSdk.debug.xcconfig */,
+				FF1F6B32FD7CF904E7D06FE2 /* Pods-ExampleApp-CFWebSdk.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E5BB0442216E31CA0066108B = {
 			isa = PBXGroup;
 			children = (
-				E5BB0460216F095E0066108B /* Frameworks */,
 				E5BB044D216E31CA0066108B /* ExampleApp-CFWebSdk */,
 				E5BB044C216E31CA0066108B /* Products */,
+				6BC5E67E68B16249764DA5A9 /* Pods */,
+				11F9B3B928ED84FFB3AFA23E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,14 +102,6 @@
 			path = "ExampleApp-CFWebSdk";
 			sourceTree = "<group>";
 		};
-		E5BB0460216F095E0066108B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A19979E125DFCBE100656071 /* CFSDK.xcframework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,10 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BB045D216E31CB0066108B /* Build configuration list for PBXNativeTarget "ExampleApp-CFWebSdk" */;
 			buildPhases = (
+				307072B17FDEF394A468DB75 /* [CP] Check Pods Manifest.lock */,
 				E5BB0447216E31CA0066108B /* Sources */,
 				E5BB0448216E31CA0066108B /* Frameworks */,
 				E5BB0449216E31CA0066108B /* Resources */,
 				DC93746325259F9A006B4048 /* Embed Frameworks */,
+				6B7B0B1F5B55ACB45583A419 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +170,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		307072B17FDEF394A468DB75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExampleApp-CFWebSdk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B7B0B1F5B55ACB45583A419 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp-CFWebSdk/Pods-ExampleApp-CFWebSdk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp-CFWebSdk/Pods-ExampleApp-CFWebSdk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleApp-CFWebSdk/Pods-ExampleApp-CFWebSdk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E5BB0447216E31CA0066108B /* Sources */ = {
@@ -306,6 +363,7 @@
 		};
 		E5BB045E216E31CB0066108B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49C4208429E3FF7155B5F77F /* Pods-ExampleApp-CFWebSdk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -329,6 +387,7 @@
 		};
 		E5BB045F216E31CB0066108B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF1F6B32FD7CF904E7D06FE2 /* Pods-ExampleApp-CFWebSdk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

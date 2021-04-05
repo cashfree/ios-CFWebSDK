@@ -236,6 +236,7 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 - (void)doWebCheckoutPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doUPIPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doAmazonPayPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
+- (NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)getUPIApps SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -289,6 +290,7 @@ SWIFT_PROTOCOL("_TtP5CFSDK14ResultDelegate_")
 @protocol ResultDelegate <NSObject>
 - (void)onPaymentCompletionWithMsg:(NSString * _Nonnull)msg;
 @end
+
 
 
 
@@ -535,6 +537,7 @@ SWIFT_CLASS("_TtC5CFSDK16CFPaymentService")
 - (void)doWebCheckoutPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doUPIPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
 - (void)doAmazonPayPaymentWithParams:(NSDictionary<NSString *, id> * _Nonnull)params env:(NSString * _Nonnull)env callback:(id <ResultDelegate> _Nonnull)callback;
+- (NSArray<NSDictionary<NSString *, NSString *> *> * _Nonnull)getUPIApps SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -588,6 +591,7 @@ SWIFT_PROTOCOL("_TtP5CFSDK14ResultDelegate_")
 @protocol ResultDelegate <NSObject>
 - (void)onPaymentCompletionWithMsg:(NSString * _Nonnull)msg;
 @end
+
 
 
 

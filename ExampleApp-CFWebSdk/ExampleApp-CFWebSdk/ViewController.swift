@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     let environment = "TEST"
     // appId from your merchant dashboard.
     let appId = "<<APP_ID>>"
+    // List of Installed UPI Apps
+    var upiApps:[[String: String]]?
     
     // Example IBAction for normal WEBVIEW CHECKOUT pay button
     @IBAction func payButton(_ sender: Any) {
@@ -38,8 +40,12 @@ class ViewController: UIViewController {
     
     // Example IBAction for SEAMLESS pay button
     @IBAction func gpayBtn(_ sender: Any) {
+        
+        // We recommend that you first get the list of Installed UPI apps using the method mentioned below
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "GOOGLEPAY" })?.first?["id"] ?? ""
+        
         CFPaymentService().doUPIPayment(
-            params: getUPIInputParams(appName: CFUPIApp.GPAY),
+            params: getUPIInputParams(appName: appName),
                 env: self.environment,
             callback: self)
         
@@ -47,8 +53,12 @@ class ViewController: UIViewController {
     
     // Example IBAction for SEAMLESS pay button
     @IBAction func phonePeBtn(_ sender: Any) {
+        
+        // We recommend that you first get the list of Installed UPI apps using the method mentioned below
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "PHONEPE" })?.first?["id"] ?? ""
+        
         CFPaymentService().doUPIPayment(
-            params: getUPIInputParams(appName: CFUPIApp.PHONEPE),
+            params: getUPIInputParams(appName: appName),
                 env: self.environment,
             callback: self)
         
@@ -57,17 +67,33 @@ class ViewController: UIViewController {
     
     // Example IBAction for SEAMLESS pay button
     @IBAction func PaytmBtn(_ sender: Any) {
+        
+        // We recommend that you first get the list of Installed UPI apps using the method mentioned below
+        let appName = (self.upiApps?.filter{ $0["displayName"] == "PAYTM" })?.first?["id"] ?? ""
+        
         CFPaymentService().doUPIPayment(
-            params: getUPIInputParams(appName: CFUPIApp.PAYTM),
+            params: getUPIInputParams(appName: appName),
                 env: self.environment,
             callback: self)
         
     }
     
+    // Example IBAction to get the list of installed UPI Apps
+    @IBAction func getUpiAppsTapped(_ sender: Any) {
+        self.upiApps = CFPaymentService().getUPIApps()
+    }
     
-    private func getUPIInputParams(appName: CFUPIApp)-> Dictionary<String, Any> {
+    
+    // Example IBAction for UNIFIED UPI Intent
+    @IBAction func unifiedUPIIntentTapped(_ sender: Any) {
+        CFPaymentService().doUPIPayment(params: getUPIInputParams(appName: nil), env: self.environment, callback: self)
+    }
+    
+    private func getUPIInputParams(appName: String?)-> Dictionary<String, Any> {
         var paymentParams = getPaymentParams()
-        paymentParams["appName"] = appName
+        if appName != nil {
+            paymentParams["appName"] = appName
+        }
         return paymentParams
     }
     

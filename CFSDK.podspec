@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
 s.name			= "CFSDK"
-s.version		= "2.0.5-beta-5"
-s.summary		= "Cocoapod implementation off Cashfree's Payment SDK"
+s.version		= "2.0.5-beta-6"
+s.summary		= "Cocoapod implementation of Cashfree's Payment SDK"
 
 s.description		= <<-DESC
 	Cashfree is a next generation payment gateway that helps 50,000+ Indian and global businesses collect and disburse payments via 100+ payment methods including Visa, MasterCard, Rupay, UPI, IMPS, NEFT, Paytm & other wallets, Pay Later and various EMI options. Cashfree is backed by Silicon Valley investor Y Combinator and was incubated by Paypal.

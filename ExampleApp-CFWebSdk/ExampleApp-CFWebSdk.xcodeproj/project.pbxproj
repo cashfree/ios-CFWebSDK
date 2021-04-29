@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC1B23E2255BFEF1000953BA /* CFSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1B23E1255BFEF1000953BA /* CFSDK.xcframework */; };
-		DC1B23E3255BFEF1000953BA /* CFSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC1B23E1255BFEF1000953BA /* CFSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A1F58BE0263811130038D6AB /* CFSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F58BDE2638110F0038D6AB /* CFSDK.xcframework */; };
+		A1F58BE1263811130038D6AB /* CFSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1F58BDE2638110F0038D6AB /* CFSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5BB044F216E31CA0066108B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB044E216E31CA0066108B /* AppDelegate.swift */; };
 		E5BB0451216E31CA0066108B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB0450216E31CA0066108B /* ViewController.swift */; };
 		E5BB0454216E31CA0066108B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BB0452216E31CA0066108B /* Main.storyboard */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC1B23E3255BFEF1000953BA /* CFSDK.xcframework in Embed Frameworks */,
+				A1F58BE1263811130038D6AB /* CFSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC1B23E1255BFEF1000953BA /* CFSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CFSDK.xcframework; path = "../../../../../../../../Library/Developer/Xcode/DerivedData/CFSDK-fkcxbfquuusygpbgbqjupqyvweat/Build/Products/Release-universal/CFSDK.xcframework"; sourceTree = "<group>"; };
+		A1F58BDE2638110F0038D6AB /* CFSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CFSDK.xcframework; path = "../../../cashfree-v2.0.7/CFSDK.xcframework"; sourceTree = "<group>"; };
 		E5BB044B216E31CA0066108B /* ExampleApp-CFWebSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExampleApp-CFWebSdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BB044E216E31CA0066108B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5BB0450216E31CA0066108B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC1B23E2255BFEF1000953BA /* CFSDK.xcframework in Frameworks */,
+				A1F58BE0263811130038D6AB /* CFSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 		E5BB0460216F095E0066108B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC1B23E1255BFEF1000953BA /* CFSDK.xcframework */,
+				A1F58BDE2638110F0038D6AB /* CFSDK.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

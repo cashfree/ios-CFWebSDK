@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target x86_64-apple-ios10.3-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CFSDK
 @_exported import CFSDK
 import Foundation
@@ -12,8 +12,9 @@ import WebKit
   case GPAY
   case PHONEPE
   case PAYTM
-  public typealias RawValue = Swift.Int
+  case NONE
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -21,8 +22,8 @@ import WebKit
 @objc public enum CF_ENV : Swift.Int {
   case TEST
   case PROD
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -32,11 +33,12 @@ import WebKit
 }
 @_hasMissingDesignatedInitializers @objc public class CFViewController : UIKit.UIViewController, WebKit.WKScriptMessageHandler, WebKit.WKUIDelegate {
   @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callBack: CFSDK.ResultDelegate)
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
   @objc override dynamic public func viewDidLoad()
-  @objc deinit
+  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
 }
 extension CFViewController : WebKit.WKNavigationDelegate {
   @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
@@ -47,17 +49,8 @@ extension CFViewController : WebKit.WKNavigationDelegate {
   @objc public func doWebCheckoutPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func doUPIPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
   @objc public func doAmazonPayPayment(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)
-  @objc public func getUPIApps() -> [[Swift.String : Swift.String]]
-  @objc deinit
   @objc override dynamic public init()
-}
-@_hasMissingDesignatedInitializers @objc public class CFUPIViewController : UIKit.UIViewController {
-  @objc public var upiCompletedDeligate: CFSDK.ResultDelegate?
-  @objc public init(orderParams: Swift.Dictionary<Swift.String, Any>, environment: Swift.String, callback: CFSDK.ResultDelegate)
   @objc deinit
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
 }
 @_hasMissingDesignatedInitializers @objc public class AmazonPayViewController : UIKit.UIViewController {
   @objc public init(params: Swift.Dictionary<Swift.String, Any>, env: Swift.String, callback: CFSDK.ResultDelegate)

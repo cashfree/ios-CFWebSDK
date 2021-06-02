@@ -1,0 +1,11 @@
+framework module CFSDK {
+  umbrella header "CFSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module CFSDK.Swift {
+    header "CFSDK-Swift.h"
+    requires objc
+}

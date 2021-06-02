@@ -12,7 +12,7 @@ Below are the latest iOS SDK download links:\
 |---------------|---------------|-------------------------|----------------------------------------------------------------------------------------------|
 | 10.3          | 4.2           | arm, armv7, arm64       | [Download Phone SDK](https://drive.google.com/open?id=1AYA1VpRj91rL3FgjOEVxj-U_9uWZEKPu)     |
 | 10.3          | 4.2           | x86_64, i386            | [Download Simulator SDK](https://drive.google.com/open?id=1CvRQLAM_0jXLwZwAGkncUQAYDF55ZK_6) |
-| 11.+          | 5+            | All                     | [Download SDK](https://drive.google.com/file/d/1oXpsL_yzymLGazDgwYFfsUzBvJWzbFjf/view)       |
+| 11.+          | 5+            | All                     | [Download SDK](https://drive.google.com/drive/folders/1mbNKZaD4s27vhUZwZN9ZPBnCjc6PXZgs?usp=sharing)       |
 | 12.+          | 5+            | All                     | [Download SDK](https://github.com/cashfree/ios-CFWebSDK/blob/master/CFSDK.xcframework.zip)   |
 
 ### Set up your Project
@@ -140,6 +140,21 @@ Click [here](https://github.com/cashfree/ios-CFWebSDK) to view the sample applic
 ### Checkout
 Checkout is the standard flow for Cashfree iOS SDK. In this flow, SDK loads a webview which renders the Cashfree's payment page. Customers can fill in details here and complete payment.\
 There are two types of Web Checkout methods. You can select the required method based on your business need.
+
+**Update Info.plist file in your project**\
+Add the following code to info.plist file.
+```
+<key>LSApplicationCategoryType</key>
+<string></string>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+<string>phonepe</string>
+<string>tez</string>
+<string>paytm</string>
+<string>bhim</string>
+</array>
+```
+
 1. **Normal** - Customer selects the payment mode and enters the payment details within the Cashfree's web payment page to complete the payment.
 2. **Seamless** - Customer selects the payment mode and enters payment details in your application. These details are then passed on to the Cashfree SDK. Webview is launched only for the two-factor authentication.
 
@@ -262,6 +277,7 @@ Add the following code to info.plist file.
 <string>phonepe</string>
 <string>tez</string>
 <string>paytm</string>
+<string>bhim</string>
 </array>
 ```
 2. **Compose order details and pass to Cashfree PG SDK**\

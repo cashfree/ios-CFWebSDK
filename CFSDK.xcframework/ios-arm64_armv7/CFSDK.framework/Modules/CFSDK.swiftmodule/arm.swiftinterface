@@ -12,6 +12,7 @@ import WebKit
   case GPAY
   case PHONEPE
   case PAYTM
+  case BHIM
   case NONE
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int

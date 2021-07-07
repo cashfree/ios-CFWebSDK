@@ -246,7 +246,8 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
-  CFUPIAppNONE = 3,
+  CFUPIAppBHIM = 3,
+  CFUPIAppNONE = 4,
 };
 
 @class WKUserContentController;
@@ -543,7 +544,8 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
-  CFUPIAppNONE = 3,
+  CFUPIAppBHIM = 3,
+  CFUPIAppNONE = 4,
 };
 
 @class WKUserContentController;
@@ -840,7 +842,8 @@ typedef SWIFT_ENUM(NSInteger, CFUPIApp, open) {
   CFUPIAppGPAY = 0,
   CFUPIAppPHONEPE = 1,
   CFUPIAppPAYTM = 2,
-  CFUPIAppNONE = 3,
+  CFUPIAppBHIM = 3,
+  CFUPIAppNONE = 4,
 };
 
 @class WKUserContentController;
